@@ -22,6 +22,9 @@ Users can view statistics about their reaction times and buzzer use. A user shou
 	◦	2 player: Player 1 buzzes, Player 2 buzzes
 	◦	3 player: Player 1 buzzes, Player 2 buzzes, Player 3 buzzes
 	◦	4 player: Player 1 buzzes, Player 2 buzzes, Player 3 buzzes, Player 4 buzzes
+	
+Demo:
+https://youtu.be/97PrT4ed5RQ
 
 References:
 http://stackoverflow.com/questions/4597690/android-timer-how
