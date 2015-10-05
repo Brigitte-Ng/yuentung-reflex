@@ -5,7 +5,7 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
+        android:label="yuentung-reflex"
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
@@ -18,7 +18,7 @@
         </activity>
         <activity
             android:name=".SingleUserActivity"
-            android:label="@string/title_activity_single_user"
+            android:label="Single User Mode"
             android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -26,7 +26,7 @@
         </activity>
         <activity
             android:name=".GameShowActivity"
-            android:label="@string/title_activity_game_show"
+            android:label="Gameshow Buzzer"
             android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -34,7 +34,7 @@
         </activity>
         <activity
             android:name=".ViewStatsActivity"
-            android:label="@string/title_activity_view_stats"
+            android:label="View Statistics"
             android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -42,7 +42,7 @@
         </activity>
         <activity
             android:name=".TimingActivity"
-            android:label="@string/title_activity_timing"
+            android:label="Reflex Timer"
             android:parentActivityName=".SingleUserActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -50,7 +50,7 @@
         </activity>
         <activity
             android:name=".TwoPlayersBuzzerActivity"
-            android:label="@string/title_activity_two_players_buzzer"
+            android:label="2 Players"
             android:parentActivityName=".GameShowActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -58,11 +58,19 @@
         </activity>
         <activity
             android:name=".ThreePlayersBuzzerActivity"
-            android:label="@string/title_activity_three_players_buzzer" >
+            android:label="3 Players"
+            android:parentActivityName=".GameShowActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ca.ualberta.cs.reflex_app.GameShowActivity" />
         </activity>
         <activity
             android:name=".FourPlayersBuzzerActivity"
-            android:label="@string/title_activity_four_players_buzzer" >
+            android:label="4 Players"
+            android:parentActivityName=".GameShowActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ca.ualberta.cs.reflex_app.GameShowActivity" />
         </activity>
     </application>
 

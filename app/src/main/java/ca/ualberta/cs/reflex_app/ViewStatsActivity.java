@@ -12,6 +12,9 @@ import java.util.List;
 
 public class ViewStatsActivity extends MainActivity {
 
+    String buzzerStat;
+    String singleStat;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,21 +45,21 @@ public class ViewStatsActivity extends MainActivity {
             last100min = timerRecord;
             last100max = timerRecord;
         }
-
-        singleStats.setText("Single User Mode:"+
-                            "\nMinimum time of last 10 times:\n" + last10min +
-                            "\nMinimum time of last 100 times:\n" + last100min +
-                            "\nMaximum time of last 10 times:\n" + last10max +
-                            "\nMaximum time of last 100 times:\n" + last100max);
+        singleStat = ("Single User Mode:"+
+                "\nMinimum time of last 10 times:\n" + last10min +
+                "\nMinimum time of last 100 times:\n" + last100min +
+                "\nMaximum time of last 10 times:\n" + last10max +
+                "\nMaximum time of last 100 times:\n" + last100max);
+        singleStats.setText(singleStat);
 
         TextView buzzerStats = (TextView)findViewById(R.id.buzzerStats);
-        buzzerStats.setText("Gameshow Buzzer Mode:" +
-                            "\nTwo Players:\n" + TwoPlayersBuzzerActivity.LoadData() +
-                            "\nThree Players:\n" + ThreePlayersBuzzerActivity.LoadData() +
-                            "\nFour Players:\n" + FourPlayersBuzzerActivity.LoadData()
-                            );
+        buzzerStat = ("Gameshow Buzzer Mode:" +
+                "\nTwo Players:\n" + TwoPlayersBuzzerActivity.LoadData() +
+                "\nThree Players:\n" + ThreePlayersBuzzerActivity.LoadData() +
+                "\nFour Players:\n" + FourPlayersBuzzerActivity.LoadData()
+        );
+        buzzerStats.setText(buzzerStat);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
