@@ -3,6 +3,7 @@ package ca.ualberta.cs.reflex_app;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 
 public class ViewStatsActivity extends MainActivity {
@@ -11,6 +12,16 @@ public class ViewStatsActivity extends MainActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_stats);
+
+        TextView singleStats = (TextView)findViewById(R.id.singleStats);
+        singleStats.setText("Single User Mode:\n"+TimingActivity.LoadData());
+
+        TextView buzzerStats = (TextView)findViewById(R.id.buzzerStats);
+        buzzerStats.setText("Gameshow Buzzer Mode:\n" +
+                            "Two Players:\n"+TwoPlayersBuzzerActivity.LoadData() +
+                            "Three Players:\n"+ThreePlayersBuzzerActivity.LoadData() +
+                            "Four Players:\n"+FourPlayersBuzzerActivity.LoadData()
+                            );
     }
 
 

@@ -9,11 +9,27 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 
 public class TwoPlayersBuzzerActivity extends GameShowActivity {
 
     int playerOneCount = 0;
     int playerTwoCount = 0;
+    static JSONObject twoPlayers = new JSONObject();
+
+    public void SaveData(String player, String count){
+        try {
+            twoPlayers.put(player, count);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static JSONObject LoadData(){
+        return twoPlayers;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +46,7 @@ public class TwoPlayersBuzzerActivity extends GameShowActivity {
 
                 playerOneCount = playerOneCount + 1;
 
-                AlertDialog playerOne = new AlertDialog.Builder(TwoPlayersBuzzerActivity.this).create();
+                final AlertDialog playerOne = new AlertDialog.Builder(TwoPlayersBuzzerActivity.this).create();
                 playerOne.setTitle("");
                 playerOne.setMessage("Player 1");
                 playerOne.setButton(AlertDialog.BUTTON_NEGATIVE, "Continue", new DialogInterface.OnClickListener() {
@@ -44,6 +60,8 @@ public class TwoPlayersBuzzerActivity extends GameShowActivity {
                 playerOne.setButton(AlertDialog.BUTTON_POSITIVE, "Exit", new DialogInterface.OnClickListener() {
                             //Go back to main page
                             public void onClick(DialogInterface dialog, int which) {
+                                SaveData("Player 1", Integer.toString(playerOneCount));
+                                SaveData("Player 2", Integer.toString(playerTwoCount));
                                 Intent intent= new Intent(TwoPlayersBuzzerActivity.this, MainActivity.class);
                                 finish();
                                 startActivity(intent);
@@ -75,6 +93,8 @@ public class TwoPlayersBuzzerActivity extends GameShowActivity {
                 playerTwo.setButton(AlertDialog.BUTTON_POSITIVE, "Exit", new DialogInterface.OnClickListener() {
                             //Go back to main page
                             public void onClick(DialogInterface dialog, int which) {
+                                SaveData("Player 1", Integer.toString(playerOneCount));
+                                SaveData("Player 2", Integer.toString(playerTwoCount));
                                 Intent intent= new Intent(TwoPlayersBuzzerActivity.this, MainActivity.class);
                                 finish();
                                 startActivity(intent);

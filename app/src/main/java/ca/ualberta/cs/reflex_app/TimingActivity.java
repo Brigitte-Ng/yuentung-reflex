@@ -19,18 +19,18 @@ public class TimingActivity extends SingleUserActivity {
 
     long startTime = 0;
     long millis = 0;
-    JSONArray singleTimeRecords = new JSONArray();
+    static JSONArray singleTimeRecords = new JSONArray();
     Random rand = new Random();
     long randomTime = 0;
 
-
-    public void SaveData(){
-
+    public void SaveData(Long record){
+        singleTimeRecords.put(record);
     }
 
-    public void LoadData(){
-
+    public static JSONArray LoadData(){
+        return singleTimeRecords;
     }
+
     //runs without a timer by reposting this handler at the end of the runnable
     Handler timerHandler = new Handler();
     Runnable timerRunnable = new Runnable() {
@@ -72,7 +72,7 @@ public class TimingActivity extends SingleUserActivity {
 
                 millis = System.currentTimeMillis() - startTime;
                 Long record = new Long(millis);
-                singleTimeRecords.put(record);
+                SaveData(record);
 
                 AlertDialog resultPop = new AlertDialog.Builder(TimingActivity.this).create();
                 resultPop.setTitle("Your Reaction Time");

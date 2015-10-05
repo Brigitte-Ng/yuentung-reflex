@@ -9,12 +9,28 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 
 public class ThreePlayersBuzzerActivity extends GameShowActivity {
 
     int playerOneCount = 0;
     int playerTwoCount = 0;
     int playerThreeCount = 0;
+    static JSONObject threePlayers = new JSONObject();
+
+    public void SaveData(String player, String count){
+        try {
+            threePlayers.put(player, count);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static JSONObject LoadData(){
+        return threePlayers;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +61,9 @@ public class ThreePlayersBuzzerActivity extends GameShowActivity {
                 playerOne.setButton(AlertDialog.BUTTON_POSITIVE, "Exit", new DialogInterface.OnClickListener() {
                             //Go back to main page
                             public void onClick(DialogInterface dialog, int which) {
+                                SaveData("Player 1", Integer.toString(playerOneCount));
+                                SaveData("Player 2", Integer.toString(playerTwoCount));
+                                SaveData("Player 3", Integer.toString(playerThreeCount));
                                 Intent intent= new Intent(ThreePlayersBuzzerActivity.this, MainActivity.class);
                                 finish();
                                 startActivity(intent);
@@ -76,6 +95,9 @@ public class ThreePlayersBuzzerActivity extends GameShowActivity {
                 playerTwo.setButton(AlertDialog.BUTTON_POSITIVE, "Exit", new DialogInterface.OnClickListener() {
                             //Go back to main page
                             public void onClick(DialogInterface dialog, int which) {
+                                SaveData("Player 1", Integer.toString(playerOneCount));
+                                SaveData("Player 2", Integer.toString(playerTwoCount));
+                                SaveData("Player 3", Integer.toString(playerThreeCount));
                                 Intent intent= new Intent(ThreePlayersBuzzerActivity.this, MainActivity.class);
                                 finish();
                                 startActivity(intent);
@@ -107,6 +129,9 @@ public class ThreePlayersBuzzerActivity extends GameShowActivity {
                 playerThree.setButton(AlertDialog.BUTTON_POSITIVE, "Exit", new DialogInterface.OnClickListener() {
                             //Go back to main page
                             public void onClick(DialogInterface dialog, int which) {
+                                SaveData("Player 1", Integer.toString(playerOneCount));
+                                SaveData("Player 2", Integer.toString(playerTwoCount));
+                                SaveData("Player 3", Integer.toString(playerThreeCount));
                                 Intent intent= new Intent(ThreePlayersBuzzerActivity.this, MainActivity.class);
                                 finish();
                                 startActivity(intent);
