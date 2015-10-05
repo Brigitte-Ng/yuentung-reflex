@@ -10,8 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import org.json.JSONArray;
-
+import java.util.ArrayList;
 import java.util.Random;
 
 
@@ -19,15 +18,15 @@ public class TimingActivity extends SingleUserActivity {
 
     long startTime = 0;
     long millis = 0;
-    static JSONArray singleTimeRecords = new JSONArray();
+    static ArrayList singleTimeRecords = new ArrayList();
     Random rand = new Random();
     long randomTime = 0;
 
     public void SaveData(Long record){
-        singleTimeRecords.put(record);
+        singleTimeRecords.add(record);
     }
 
-    public static JSONArray LoadData(){
+    public static ArrayList LoadData(){
         return singleTimeRecords;
     }
 
